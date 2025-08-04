@@ -41,14 +41,15 @@
       margin-bottom: 2em;
     }
     .logo {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       margin: auto;
-      filter: drop-shadow(0 0 15px #00ffffaa);
-      animation: pulse 3s infinite ease-in-out;
+      display: block;
+      filter: drop-shadow(0 0 10px #00ffff88);
+      animation: pulse 3s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 10px #00ffff66); }
+      0%, 100% { filter: drop-shadow(0 0 10px #00ffff55); }
       50% { filter: drop-shadow(0 0 25px #00ffffcc); }
     }
   </style>
@@ -56,8 +57,9 @@
 <body>
 
   <header>
-    <svg id="logo" class="logo" viewBox="0 0 750 750" fill="#00FFFF">
-      <path id="morphPath" d="M250 500C250 300 500 300 500 500C500 700 250 700 250 500Z" />
+    <svg id="logo" class="logo" viewBox="0 0 600 600" fill="#00FFFF" xmlns="http://www.w3.org/2000/svg">
+      <!-- начальная форма — ассасин -->
+      <path id="morphPath" d="M300 100C300 200 400 200 400 300C400 400 300 400 300 300C300 200 200 200 200 300C200 400 300 500 300 500" />
     </svg>
   </header>
 
@@ -99,14 +101,21 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    const morph = gsap.to("#morphPath", {
+    const morphPath = document.getElementById("morphPath");
+
+    // Начальная форма — символ ассасинов
+    const path1 = "M300 100C300 200 400 200 400 300C400 400 300 400 300 300C300 200 200 200 200 300C200 400 300 500 300 500";
+
+    // Финальная форма — WebAfgan логотип (стилизованно)
+    const path2 = "M200 200 L400 200 L400 400 L200 400 Z M250 250 L350 250 L350 350 L250 350 Z";
+
+    // Morph анимация
+    gsap.to(morphPath, {
       duration: 2,
       repeat: -1,
       yoyo: true,
       ease: "power2.inOut",
-      attr: {
-        d: "M250 250 L500 250 L500 500 L250 500 Z M325 325 L425 325 L425 425 L325 425 Z"
-      }
+      attr: { d: path2 }
     });
   </script>
 
