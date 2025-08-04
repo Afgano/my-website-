@@ -11,7 +11,7 @@
       padding: 2em;
       background-color: #111;
       color: #eee;
-      font-family: 'Space+Mono', monospace;
+      font-family: 'Space Mono', monospace;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -53,9 +53,9 @@
     }
     .logo-container {
       position: relative;
-      height: 100px;
+      height: 150px;
       margin: 0 auto;
-      width: 100px;
+      width: 150px;
       perspective: 1000px;
     }
     .logo {
@@ -77,8 +77,8 @@
     }
     .cyber-pulse {
       position: absolute;
-      width: 120px;
-      height: 120px;
+      width: 170px;
+      height: 170px;
       border: 2px solid #00ffff;
       border-radius: 50%;
       top: -10px;
@@ -92,16 +92,23 @@
 
   <header>
     <div class="logo-container">
-      <svg id="logo1" class="logo" viewBox="0 0 100 100" fill="#00FFFF">
-        <polygon points="50,10 60,40 50,35 40,40" />
+      <!-- Ваш оригинальный лого1 -->
+      <svg id="logo1" class="logo" viewBox="0 0 1125 1125" fill="#00FFFF">
+        <path d="M0 0 C371.25 0 742.5 0 1125 0 C1125 371.25 1125 742.5 1125 1125 C753.75 1125 382.5 1125 0 1125 C0 753.75 0 382.5 0 0 Z" fill="#FEFEFE"/>
+        <path d="M560 1 C931 0 1302 0 1125 1125 H0 V1 H560 Z" fill="#010101"/>
       </svg>
-      <svg id="logo2" class="logo" viewBox="0 0 100 100" fill="#00FFFF">
-        <path d="M30,20 L70,20 L70,80 L30,80 Z M50,30 L50,70" />
+      
+      <!-- Ваш оригинальный лого2 -->
+      <svg id="logo2" class="logo" viewBox="0 0 1024 1024" fill="#00FFFF">
+        <path fill="#272727" d="M-0.5-0.5h1024v1024h-1024z"/>
+        <path fill="#fbf9f4" d="M615.5 327.5h37v184c-12 13-24 26-36 39... (ваш полный SVG лого2)"/>
       </svg>
+      
       <div class="cyber-pulse"></div>
     </div>
   </header>
 
+  <!-- Остальное содержимое без изменений -->
   <h1>webafgan</h1>
   <p>начинающий исследователь кибербезопасности<br>
   ученик <strong>HSIIH TEAM</strong></p>
@@ -178,7 +185,7 @@
         yoyo: true
       }, 0);
 
-      // Пульсация для кибер-эффекта
+      // Пульсация каждые 4 секунды
       setInterval(() => {
         gsap.to(".cyber-pulse", {
           duration: 2,
@@ -190,7 +197,7 @@
         });
       }, 4000);
 
-      // Постепенное появление секций
+      // Появление секций
       const sections = document.querySelectorAll('.section');
       sections.forEach((section, index) => {
         setTimeout(() => {
