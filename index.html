@@ -41,15 +41,14 @@
       margin-bottom: 2em;
     }
     .logo {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       margin: auto;
-      display: block;
-      filter: drop-shadow(0 0 10px #00ffff88);
+      filter: drop-shadow(0 0 15px #00ffffaa);
       animation: pulse 3s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 10px #00ffff55); }
+      0%, 100% { filter: drop-shadow(0 0 10px #00ffff66); }
       50% { filter: drop-shadow(0 0 25px #00ffffcc); }
     }
   </style>
@@ -57,9 +56,9 @@
 <body>
 
   <header>
-    <svg id="logo" class="logo" viewBox="0 0 600 600" fill="#00FFFF" xmlns="http://www.w3.org/2000/svg">
-      <!-- начальная форма — ассасин -->
-      <path id="morphPath" d="M300 100C300 200 400 200 400 300C400 400 300 400 300 300C300 200 200 200 200 300C200 400 300 500 300 500" />
+    <svg class="logo" viewBox="0 0 600 600" fill="#00FFFF" xmlns="http://www.w3.org/2000/svg">
+      <path id="logoPath"
+        d="M300 50C300 50 232 206 176 274C220 282 276 298 300 498C324 298 380 282 424 274C368 206 300 50 300 50Z" />
     </svg>
   </header>
 
@@ -101,21 +100,18 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    const morphPath = document.getElementById("morphPath");
+    const path = document.getElementById("logoPath");
 
-    // Начальная форма — символ ассасинов
-    const path1 = "M300 100C300 200 400 200 400 300C400 400 300 400 300 300C300 200 200 200 200 300C200 400 300 500 300 500";
+    const assassinLogo = "M300 50C300 50 232 206 176 274C220 282 276 298 300 498C324 298 380 282 424 274C368 206 300 50 300 50Z";
 
-    // Финальная форма — WebAfgan логотип (стилизованно)
-    const path2 = "M200 200 L400 200 L400 400 L200 400 Z M250 250 L350 250 L350 350 L250 350 Z";
+    const webafganTextPath = "M100 400L100 300L130 300L130 370L160 300L190 300L160 370L190 400L160 400L130 370L130 400L100 400ZM210 400L210 300L260 300L260 330L240 330L240 370L260 370L260 400L210 400ZM280 400L280 300L330 300L330 330L310 330L310 370L330 370L330 400L280 400ZM350 400L350 300L400 300L400 400L350 400Z";
 
-    // Morph анимация
-    gsap.to(morphPath, {
-      duration: 2,
+    gsap.to(path, {
+      duration: 4,
       repeat: -1,
       yoyo: true,
       ease: "power2.inOut",
-      attr: { d: path2 }
+      attr: { d: webafganTextPath }
     });
   </script>
 
